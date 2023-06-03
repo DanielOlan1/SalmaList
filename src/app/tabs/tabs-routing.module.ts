@@ -30,6 +30,22 @@ const routes: Routes = [
     path: '',
     redirectTo: '/tabs/tab1',
     pathMatch: 'full'
+  },
+  {
+    path: 'monitoreo',
+    loadChildren: () => import('./monitoreo/monitoreo.module').then( m => m.MonitoreoPageModule)
+  },
+  {
+    path: 'operadores',
+    loadChildren: () => import('./operadores/operadores.module').then( m => m.OperadoresPageModule)
+  },
+  {
+    path: 'unidades',
+    loadChildren: () => import('./unidades/unidades.module').then( m => m.UnidadesPageModule)
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
   }
 ];
 
