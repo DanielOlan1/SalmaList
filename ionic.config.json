@@ -1,0 +1,7 @@
+{
+  "name": "SalmaList",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
