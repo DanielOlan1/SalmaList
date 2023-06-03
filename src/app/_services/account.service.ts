@@ -15,7 +15,8 @@ export class AccountService {
   token = environment;
   private currentUserSource = new ReplaySubject<user>(1);
   currentUser$ = this.currentUserSource.asObservable();
-  
+  private loggedIn: boolean = false;
+
   constructor(
     private http: HttpClient, 
     private router: Router, 
@@ -89,4 +90,24 @@ export class AccountService {
     const _member: Member = JSON.parse(localStorage.getItem('member') || '{}');
     return _member
   }
+
+  isLoggedIn(): boolean {
+    return this.loggedIn;
+  }
+
+  authenticate(username: string, password: string): boolean {
+    // Aquí debes realizar la lógica de autenticación
+    // Por ejemplo, verificar si las credenciales son válidas
+    // y establecer el estado de loggedIn en consecuencia
+    if (username === 'admin' && password === '123456') {
+      this.loggedIn = true;
+      return true;
+    } else {
+      this.loggedIn = false;
+      return false;
+    }
+  }
+
 }
+
+

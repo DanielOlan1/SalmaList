@@ -17,9 +17,9 @@ import { HttpConfigInterceptor } from './_interceptors/httpConfig.interceptor';
     IonicModule.forRoot({
     }),
     AppRoutingModule, 
-    ReactiveFormsModule, 
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
    
     
    ],
