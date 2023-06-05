@@ -1,81 +1,47 @@
-<ion-content color="light">
+<ion-content color="light" >
 
-  <div id="header">
-    <div id="app-bar">
-      <ion-icon name="arrow-back"></ion-icon>
-      <div id="logo">
-        <img src="https://i0.wp.com/transportessalma.com/wp-content/uploads/2022/03/cropped-Icon-2-Salma.png?fit=240%2C240&ssl=1" alt="">
-      </div>
-      <div></div>
+    <div id="header">
+        <div id="app-bar">
+            <ion-icon name="arrow-black"></ion-icon>
+            <div id="logo">
+                <img src="https://i0.wp.com/transportessalma.com/wp-content/uploads/2022/03/cropped-Icon-2-Salma.png?fit=240%2C240&ssl=1" alt="">
+            </div>
+        <div></div>
+        </div>
+        <h1>Bienvenido</h1>
     </div>
-    <h1>Bienvenido</h1>
-  </div>
 
-  <div class="wrapper">
-
-    <ion-card class="form-wrapper">
-      <ion-card-title class="TITLE-LOGIN">
+<div class="wrapper">
+   
+   <ion-card  class="form-wrapper" >
+    <ion-card-title class="TITLE-LOGIN">
         LOGIN
-      </ion-card-title>
-      <form [formGroup]="loginForm" (ngSubmit)="login()">
-        <ion-item>
-          <ion-label position="floating">Usuario</ion-label>
-          <ion-input formControlName="username" required></ion-input>
+    </ion-card-title>
+    <form [formGroup]="loginForm" (ngSubmit)="Login()">
+        <ion-item >
+            <ion-label  position="floating">Usuario</ion-label>
+            <ion-input  formControlName="username" required></ion-input>
         </ion-item>
 
-        <ion-item>
-          <ion-label position="floating">Contraseña</ion-label>
-          <ion-input type="password" formControlName="password" required></ion-input>
+        <ion-item >
+            <ion-label  position="floating">Password</ion-label>
+            <ion-input  type="password" formControlName="password" required></ion-input>
         </ion-item>
 
-        <ion-button shape="round" type="submit" expand="block" [disabled]="!loginForm.valid">Iniciar sesión</ion-button>
+        <ion-button  shape="round" type="submit" expand="block" [disabled]="!loginForm.valid" >Iniciar sesion</ion-button>
 
-      </form>
-    </ion-card>
-  </div>
+    </form>
+</ion-card>
+</div>
 
 </ion-content>
 
 <footer class="footer">
-  <ion-grid>
-    <ion-row>
+    <ion-grid>
+        <ion-row>
 
-      <ion-col>
-        <div id="logo-f">
-          <img class="img-f" src="https://i0.wp.com/transportessalma.com/wp-content/uploads/2022/04/hmsa-logo.png?fit=396%2C216&ssl=1" alt="">
-        </div>
-      </ion-col>
-
-      <ion-col>
-        <div id="logo-f">
-          <img class="img-f" src="https://i0.wp.com/transportessalma.com/wp-content/uploads/2022/04/pemex-logo-e1648771958684.png?fit=168%2C111&ssl=1" alt="">
-        </div>
-      </ion-col>
-
-      <ion-col>
-        <div id="logo-f">
-          <img class="img-f" src="https://i0.wp.com/transportessalma.com/wp-content/uploads/2022/04/maseca-logo.png?fit=478%2C112&ssl=1" alt="">
-        </div>
-      </ion-col>
-
-      <ion-col>
-        <div id="logo-f">
-          <img class="img-f" src="https://i0.wp.com/transportessalma.com/wp-content/uploads/2022/04/apasco-logo-e1648771996101.png?fit=137%2C134&ssl=1" alt="">
-        </div>
-      </ion-col>
-
-      <ion-col>
-        <div id="logo-f">
-          <img class="img-f" src="https://i0.wp.com/transportessalma.com/wp-content/uploads/2022/04/grupomexico-logo.png?fit=524%2C100&ssl=1" alt="">
-        </div>
-      </ion-col>
-
-      <ion-col>
-        <div id="logo-f">
-          <img class="img-f" src="https://i0.wp.com/transportessalma.com/wp-content/uploads/2022/04/energex-logo.png?fit=558%2C120&ssl=1" alt="">
-        </div>
-      </ion-col>
-
-    </ion-row>
-  </ion-grid>
+        
+         
+        </ion-row>
+      </ion-grid>
 </footer>

@@ -31,7 +31,7 @@ export class AccountService {
         const user: any = response;
         if (user) {
           this.setCurrentUser(user);
-          this.router.navigate(['../tabs/monitoreo']);
+          this.router.navigate(['../tabs/dashboard']);
         }
       },
 
@@ -96,9 +96,7 @@ export class AccountService {
   }
 
   authenticate(username: string, password: string): boolean {
-    // Aquí debes realizar la lógica de autenticación
-    // Por ejemplo, verificar si las credenciales son válidas
-    // y establecer el estado de loggedIn en consecuencia
+
     if (username === 'admin' && password === '123456') {
       this.loggedIn = true;
       return true;

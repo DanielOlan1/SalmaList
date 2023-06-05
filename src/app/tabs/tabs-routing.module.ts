@@ -30,6 +30,16 @@ const routes: Routes = [
         path: 'viajes',
         loadChildren: () => import('./viajes/viajes.module').then(m => m.ViajesPageModule)
       }
+      ,
+      {
+        path: 'profile',
+        loadChildren: () => import('./profile/profile.module').then(m => m.ProfilePageModule)
+      }
+      ,
+      {
+        path: 'trafico',
+        loadChildren: () => import('./trafico/trafico.module').then(m => m.TraficoPageModule)
+      }
     ]
   },
   {
@@ -37,6 +47,10 @@ const routes: Routes = [
     redirectTo: '/tabs/dashboard',
     pathMatch: 'full'
     
+  },
+  {
+    path: 'trafico',
+    loadChildren: () => import('./trafico/trafico.module').then( m => m.TraficoPageModule)
   }
 
 ];

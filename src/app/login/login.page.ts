@@ -14,40 +14,45 @@ export class LoginPage implements OnInit {
   constructor(
     public router: Router,
     private accountService: AccountService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
   ) {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
     });
+
   }
+  ngOnInit(): void {
 
-  ngOnInit() {
-    const username = localStorage.getItem('username');
-    const password = localStorage.getItem('password');
+    var username = localStorage.getItem('username')
+    var password = localStorage.getItem('password')
 
-    if (username && password) {
-      const model = {
+    if (username != null && password != null) {
+      var model = {
         username: username,
         password: password,
-      };
+      }
 
-      this.accountService.login(model);
+      this.accountService.login(model)
 
-      this.router.navigate(['../tabs/monitoreo']);
+      this.router.navigate(['../tabs/dashboard']);
     }
+
+
   }
 
-  login() {
-    const model = {
+
+  Login() {
+
+    var model = {
       username: this.loginForm.value.username,
       password: this.loginForm.value.password,
-    };
+    }
 
-    localStorage.setItem('username', model.username);
-    localStorage.setItem('password', model.password);
+    localStorage.setItem('username', model.username)
+    localStorage.setItem('password', model.password)
+    this.accountService.login(model)
 
-    this.accountService.login(model);
-    this.router.navigate(['../tabs/monitoreo']);
   }
+
 }

@@ -1,13 +1,48 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>profile</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">profile</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
+<ion-content >
+  <ion-card class="card-class-perfil" >
+    <ion-card-header >
+      
+    </ion-card-header>
+  
+    <ion-card-content class="user-name">
+
+    </ion-card-content>
+  
+    <ion-item>
+      <ion-icon name="moon" slot="start"></ion-icon>
+      <ion-label>Dark Mode
+      </ion-label>
+    </ion-item>
+  </ion-card>
+  
+ 
+  
+  <ion-card class="card-class-perfil">
+    <ion-button (click)="logout()" expand="full" fill="outline" shape="round">
+      <ion-icon name="log-out-outline" slot="start"></ion-icon>
+      Cerrar sesion
+    </ion-button>
+    
+    <ion-button id="_version" expand="block" fill="outline" shape="round">
+      <ion-icon name="bug-outline" slot="start"></ion-icon>
+      Version
+    </ion-button>
+    <ion-popover mode="ios" trigger="_version" triggerAction="click" side="bottom">
+      <ng-template>
+        <ion-content class="ion-padding">Version 1.25</ion-content>
+      </ng-template>
+    </ion-popover>
+  
+    <ion-button [disabled]="true" expand="block" fill="outline" shape="round" (click)="userComments()">
+      Sugerencias
+    </ion-button>
+    
+  </ion-card>
+  
+  
+  
+  </ion-content>
+  
+  
+  

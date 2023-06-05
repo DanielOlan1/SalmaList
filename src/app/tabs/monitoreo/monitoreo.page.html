@@ -1,13 +1,214 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>monitoreo</ion-title>
-  </ion-toolbar>
+<ion-header mode="ios" [translucent]="true">
+
+        <ion-searchbar class="ion-searchbar-class1" show-clear-button="always" mode="ios"
+          placeholder="TS, PR, operador, origen, destino" animated="true">
+        </ion-searchbar>
+
+
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">monitoreo</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
+<ion-content>
+  <ng-container *ngFor="let evento of LogEventosItem">
+    <ion-card mode="ios" class="card-class-monitoreo" button>
+      <ion-card-content *ngIf="loaded">
+        <!-- 1st ROW -->
+        <ion-grid [fixed]="true">
+          <ion-row>
+            <ion-col size="6" id="my-element">
+              <h1 class="h1-class-monitoreo">{{evento.unidad}} | {{evento.letraPR}}</h1>
+            </ion-col>
+            <ion-col size="6">
+              <h1 class="operadorText">{{evento.operador}}</h1>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+  
+        <ion-grid [fixed]="true">
+          <!-- 2nd ROW -->
+          <ion-row>
+            <ion-col size="6">
+              <p *ngIf="evento.cargado" class="cargado">CARGADO</p>
+              <p *ngIf="!evento.cargado" class="vacio">VACIO</p>
+            </ion-col>
+            <ion-col size="6" class="producto">
+              <p class="producto">{{evento.producto}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+  
+        <hr />
+  
+        <ion-grid [fixed]="true">
+          <!-- 3rd ROW -->
+          <ion-row>
+            <!-- ACCION -->
+            <ion-col style="text-align: center;" size="6">
+              <p class="borderRadius"
+                [ngClass]="{
+                  'creamColor': evento.accion === 0,
+                  'greenColor': evento.accion === 6 || evento.accion === 3,
+                  'blueColor': evento.accion === 10 || evento.accion === 11,
+                  'yellowColor': evento.accion === 4 || evento.accion === 5,
+                  'redColor': (evento.accion === 1 && evento.cargado) || (evento.accion === 2 && evento.cargado),
+                  'purpleColor': (evento.accion === 1 && !evento.cargado) || (evento.accion === 2 && !evento.cargado),
+                  'orangeColor': evento.accion === 13
+                }">
+                <strong>{{evento.accionString}}</strong>
+              </p>
+            </ion-col>
+  
+            <!-- FECHA ASIGNACION -->
+            <ion-col class="center" size-md="6">{{evento.fechaAsignacion | date:'d/MMM/yyyy'}}</ion-col>
+          </ion-row>
+  
+          <ion-row>
+            <ion-col size-md="12">{{evento.ubicacion}}</ion-col>
+          </ion-row>
+  
+          <hr />
+        </ion-grid>
+  
+        <ion-grid [fixed]="true">
+          <!-- 4th ROW -->
+          <ion-row>
+            <ion-col class="origenLabel" size="6">Origen</ion-col>
+            <ion-col class="origenLabel" size="6">Destino</ion-col>
+          </ion-row>
+  
+          <ion-row>
+            <ion-col class="origenText" size="6">{{evento.origen}}</ion-col>
+            <ion-col class="origenText" size="6">{{evento.destino}}</ion-col>
+          </ion-row>
+  
+          <ion-row>
+            <ion-col class="origenFecha" size="6">{{evento.fechaCarga | date:'d MMM, h a'}}</ion-col>
+            <ion-col class="origenFecha" size="6">{{evento.fechaDescarga | date:'d MMM, h a'}}</ion-col>
+          </ion-row>
+        </ion-grid>
+  
+        <hr>
+  
+        <ion-row>
+          <ion-col>
+            <p class="borderRadius" [ngClass]="getClienteClass(evento)">
+              <strong>{{evento.cliente}}</strong>
+            </p>
+          </ion-col>
+        </ion-row>
+  
+        <!-- 6th ROW  OBSERVACIONES-->
+        <ion-grid [fixed]="true">
+          <ion-row class="observaciones">
+            {{evento.observaciones}}
+          </ion-row>
+        </ion-grid>
+  
+        <!-- 7th ROW  TIMEAGO-->
+        <ion-grid [fixed]="true">
+          <ion-row>
+            <ion-col>
+              <h6 class="timeago borderRadius"> {{evento.registro}} , {{evento.user}}
+              </h6>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+  
+
+<ng-container *ngFor="let item of [1, 2, 3, 4, 5,6,7,8,9,10,11,12,13,14,15]">
+<ion-card mode="ios" id="card-element" class="card-class-monitoreo" button *ngIf="!loaded">
+  <ion-card-content >
+    <!-- 1st ROW -->
+    <ion-grid [fixed]="true">
+      <ion-row>
+        <ion-col size="6" id="my-element">
+          <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
+        </ion-col>
+        <ion-col size="6">
+          <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid [fixed]="true">
+      <!-- 2nd ROW -->
+      <ion-row>
+        <ion-col size="6">
+          <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
+          <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
+        </ion-col>
+        <ion-col size="6" class="producto">
+          <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <hr />
+
+    <ion-grid [fixed]="true">
+      <!-- 3rd ROW -->
+      <ion-row>
+        <!-- ACCION -->
+        <ion-col style="text-align: center;" size="6">
+          <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
+        </ion-col>
+
+        <!-- FECHA ASIGNACION -->
+        <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
+      </ion-row>
+
+      <ion-row>
+        <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
+      </ion-row>
+
+      <hr />
+    </ion-grid>
+
+    <ion-grid [fixed]="true">
+      <!-- 4th ROW -->
+      <ion-row>
+        <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
+        <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
+      </ion-row>
+
+      <ion-row>
+      <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
+      <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
+      </ion-row>
+
+      <ion-row>
+        <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
+        <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
+      </ion-row>
+    </ion-grid>
+
+    <hr>
+
+    <ion-row>
+      <ion-col>
+        <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
+        
+      </ion-col>
+    </ion-row>
+
+    <!-- 6th ROW  OBSERVACIONES-->
+    <ion-grid [fixed]="true">
+      <ion-row class="observaciones">
+        <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
+      </ion-row>
+    </ion-grid>
+
+    <!-- 7th ROW  TIMEAGO-->
+    <ion-grid [fixed]="true">
+      <ion-row>
+        <ion-col>
+          <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>
+</ng-container>
