@@ -1,47 +1,43 @@
-<ion-content color="light" >
 
-    <div id="header">
-        <div id="app-bar">
-            <ion-icon name="arrow-black"></ion-icon>
-            <div id="logo">
-                <img src="https://i0.wp.com/transportessalma.com/wp-content/uploads/2022/03/cropped-Icon-2-Salma.png?fit=240%2C240&ssl=1" alt="">
-            </div>
-        <div></div>
-        </div>
-        <h1>Bienvenido</h1>
-    </div>
+  <ion-toolbar >
+    <div class="back-circle"></div>
+    <ion-title class="ion-text-center custom-font">Log In</ion-title>
+  </ion-toolbar>
 
-<div class="wrapper">
-   
-   <ion-card  class="form-wrapper" >
-    <ion-card-title class="TITLE-LOGIN">
-        LOGIN
-    </ion-card-title>
+
+<ion-content >
+
+
+
     <form [formGroup]="loginForm" (ngSubmit)="Login()">
-        <ion-item >
-            <ion-label  position="floating">Usuario</ion-label>
-            <ion-input  formControlName="username" required></ion-input>
-        </ion-item>
-
-        <ion-item >
-            <ion-label  position="floating">Password</ion-label>
-            <ion-input  type="password" formControlName="password" required></ion-input>
-        </ion-item>
-
-        <ion-button  shape="round" type="submit" expand="block" [disabled]="!loginForm.valid" >Iniciar sesion</ion-button>
-
+      <ion-item>
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input formControlName="username" required></ion-input>
+</ion-item>
+<ion-item>
+        <ion-label position="floating" >Password</ion-label>
+        <ion-input
+          type="password"
+          formControlName="password"
+          required
+        ></ion-input>
+</ion-item>
+      <ion-button
+        type="submit"
+        expand="block"
+        mode="ios"
+        [disabled]="!loginForm.valid"
+        >Iniciar sesion</ion-button
+      >
     </form>
-</ion-card>
-</div>
+ 
+
 
 </ion-content>
 
-<footer class="footer">
-    <ion-grid>
-        <ion-row>
-
-        
-         
-        </ion-row>
-      </ion-grid>
-</footer>
+<ion-footer class="ion-no-border">
+	<ion-toolbar>
+		<p class="ion-text-center custom-font">Si tienes algun problema contactanos-<a href="">Contacto</a></p>
+    <div class="back-circle1"></div>
+	</ion-toolbar>
+</ion-footer>

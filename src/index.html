@@ -22,6 +22,14 @@
 
 <body>
   <app-root></app-root>
+  <script>
+    setTimeout(() => {
+      const splash = document.getElementById('splash');
+      if (splash) {
+        splash.remove();
+      }
+    }, 3000);
+  </script>
 </body>
 
 </html>
