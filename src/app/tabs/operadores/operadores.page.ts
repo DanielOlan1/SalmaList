@@ -16,6 +16,9 @@ export class OperadoresPage implements OnInit {
   apellidoPaterno: string = '';
   apellidoMaterno: string = '';
   vencimientoLicencia: Date = new Date();
+
+  public loaded = false;
+
   constructor(
     private operadoresService: OperadoresService
   ) { 
@@ -33,6 +36,7 @@ export class OperadoresPage implements OnInit {
     this.operadoresService.getOperadores().subscribe(operador => {
       this._operador = operador;
       console.log("operador.ts", this._operador)
+      this.loaded = true;
     }
     );
   }
