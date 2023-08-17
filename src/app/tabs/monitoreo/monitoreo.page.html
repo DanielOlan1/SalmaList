@@ -1,15 +1,27 @@
 <ion-header mode="ios" [translucent]="true">
-
         <ion-searchbar class="ion-searchbar-class1" show-clear-button="always" mode="ios"
           placeholder="TS, PR, operador, origen, destino" animated="true">
         </ion-searchbar>
-
-
 </ion-header>
 
 <ion-content>
   <ng-container *ngFor="let evento of LogEventosItem">
     <ion-card mode="ios" class="card-class-monitoreo" button>
+      <ion-card-header>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              a
+            </ion-col>
+            <ion-col>
+              a
+            </ion-col>
+            <ion-col>
+              a
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-header>
       <ion-card-content *ngIf="loaded">
         <!-- 1st ROW -->
         <ion-grid [fixed]="true">
